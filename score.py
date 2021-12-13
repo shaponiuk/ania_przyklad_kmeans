@@ -8,5 +8,7 @@ with open('model.pkl', 'rb') as handle:
 
 y_preds = model.predict(df.drop('y', axis=1))
 
-y_preds_series = pd.Series(y_preds)
-y_preds_series.to_csv("result.csv")
+y_preds_df = pd.DataFrame(y_preds.reshape(-1, 1), columns = ['cluster_id'])
+X = df.drop('y', axis=1)
+result_df = pd.concat([X, y_preds_df], axis=1)
+result_df.to_csv("result.csv")
