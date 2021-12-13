@@ -9,5 +9,5 @@ ktest.fit(df.drop('y', axis=1)) #fitting the model to X
 y_pred = ktest.predict(df.drop('y', axis=1)) #predicting labels (y) and saving to y_pred
 
 with open('model.pkl', 'wb') as handle:
-    pickle.dump(ktest, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    pickle.dump(ktest, handle)
 
